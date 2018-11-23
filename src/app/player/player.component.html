@@ -1,0 +1,15 @@
+<audio #audioPlayer id="player" src="{{playerService.getSrc()}}">
+</audio>
+<div *ngIf="playerService.actual != undefined" class="player-container">
+  <div class="command-button-container">
+    <i class="command-button fas fa-backward"></i>
+    <i class="command-button fas fa-pause" *ngIf="playerService.currentlyPlaying; else playButton" (click)="playerService.pause()"></i>
+    <ng-template #playButton><i class="command-button fas fa-play" (click)="playerService.play()"></i></ng-template>
+    <i class="command-button fas fa-forward"></i>
+  </div>
+  <div class="timing">{{playerService.progression()}}</div>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="playerService.currentTime()" aria-valuemin="0"
+      [attr.aria-valuemax]="playerService.duration"></div>
+  </div>
+</div>

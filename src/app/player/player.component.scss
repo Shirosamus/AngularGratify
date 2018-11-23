@@ -1,0 +1,51 @@
+.player-container{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 10vh;
+    width: 20vw;
+    margin: 20px;
+    padding: 0;
+
+    background-clip: content-box;
+    background-color: slategray;
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+}
+
+.command-button-container{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+}
+
+.command-button{
+    height: 35px;
+    width: 35px;
+    font-size: 20px;
+    text-align: center;
+
+    &:hover{
+        color: #57436C;
+    }
+}
+
+.progress{
+    position: absolute;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    margin-bottom: 10px !important;
+    width: 19vw;
+    height: 4px;
+    bottom: 0;
+}
+
+.timing{
+    position: absolute;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    width: 19vw;
+    height: 25px;
+    bottom: 15px;
+}

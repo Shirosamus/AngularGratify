@@ -1,0 +1,28 @@
+li{
+    background-color: #414141 !important;
+    border-color: #313131 !important;
+    border-radius: 7px !important;
+
+    &:hover{
+        background-color: #57436C !important;
+        cursor: pointer;
+    }
+}
+.img-container{
+    display: flex;
+}
+img{
+    box-sizing: content-box;
+    height: 10vh;
+    width: 10vh;
+    margin: auto; 
+    float: left;
+    padding-right: 20px;
+    background-image:url('../../assets/img/albumCoverDefault.png');
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    background-size: 10vh 10vh;
+}
+h4{
+    margin-top: 5px !important;
+}

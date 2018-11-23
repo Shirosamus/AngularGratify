@@ -1,0 +1,12 @@
+<div *ngIf="isConnected(); else youHaveToLog">
+    <h3>Our (very) legal databse</h3>
+    <ul class="list-group">
+        <app-music *ngFor="let music of musicList; let i = index" [title]=music.title [author]=music.author [albumName]=music.albumName
+            [index]=i>
+        </app-music>
+    </ul>
+</div>
+<ng-template #youHaveToLog>
+    <h3>Error :c</h3>
+    <p>Sorry, you have to log to listen to music ! (it's very quick, click the key button on the navigation bar !)</p>
+</ng-template>
