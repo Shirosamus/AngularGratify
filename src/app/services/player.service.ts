@@ -7,7 +7,8 @@ export class PlayerService {
 
     actual: Music;
     currentlyPlaying: boolean = false;
-    duration: number;
+    currentTime: number = 0;
+    duration: number = 0;
 
     onCanPlay = ()=>{};
 
@@ -34,12 +35,16 @@ export class PlayerService {
         this.currentlyPlaying = false;
     }
 
-    currentTime() {
-        return this.audioPlayer.nativeElement.currentTime;
+    refreshCurrentTime(){
+        this.currentTime = this.audioPlayer.nativeElement.currentTime;
     }
 
     progression(){
-        return this.convertToMinutes(this.currentTime()) + "/" + this.convertToMinutes(this.duration);
+        return this.convertToMinutes(this.currentTime) + "/" + this.convertToMinutes(this.duration);
+    }
+
+    percentProgression(){
+        return (this.currentTime / this.duration) * 100;
     }
 
     convertToMinutes(time: number) {

@@ -16,8 +16,4 @@ export class PlayerComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.playerService.audioPlayer = this.audioPlayer;
   }
-
-  onCanPlay(){
-    this.playerService.onCanPlay();
-  }
 }

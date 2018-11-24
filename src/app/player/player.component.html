@@ -1,6 +1,7 @@
 <audio #audioPlayer id="player" 
         src="{{playerService.getSrc()}}"
-        (canplay)="onCanPlay()">
+        (canplay)="playerService.onCanPlay()"
+        (timeupdate)="playerService.refreshCurrentTime()">
 </audio>
 <div *ngIf="playerService.actual != undefined" class="player-container">
   <div class="command-button-container">
@@ -11,7 +12,7 @@
   </div>
   <div class="timing">{{playerService.progression()}}</div>
   <div class="progress">
-    <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="playerService.currentTime()" aria-valuemin="0"
-      [attr.aria-valuemax]="playerService.duration"></div>
+    <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="playerService.currentTime" aria-valuemin="0"
+      [attr.aria-valuemax]="playerService.duration" [ngStyle]="{'width': playerService.percentProgression() + '%'}"></div>
   </div>
 </div>
