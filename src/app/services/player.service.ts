@@ -9,11 +9,16 @@ export class PlayerService {
     currentlyPlaying: boolean = false;
     duration: number;
 
+    onCanPlay = ()=>{};
+
     setNewMusic(music: Music){
         this.actual = music;
         this.audioPlayer.nativeElement.src = this.getSrc();
-        this.play();
-        this.duration = this.audioPlayer.nativeElement.duration;
+        this.audioPlayer.nativeElement.load();
+        this.onCanPlay = () => {
+            this.play();
+            this.duration = this.audioPlayer.nativeElement.duration;
+        };
     }
 
     play() {
@@ -44,6 +49,7 @@ export class PlayerService {
     getSrc(){
       if(this.audioPlayer === undefined || this.actual === undefined)
         return "./nothing.mp3";
+
       return "../../assets/music/" + this.actual.author + "/" + 
               this.actual.albumName + "/" + this.actual.title + ".mp3";
     }

@@ -1,4 +1,6 @@
-<audio #audioPlayer id="player" src="{{playerService.getSrc()}}">
+<audio #audioPlayer id="player" 
+        src="{{playerService.getSrc()}}"
+        (canplay)="onCanPlay()">
 </audio>
 <div *ngIf="playerService.actual != undefined" class="player-container">
   <div class="command-button-container">
