@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { MusicService, Music } from '../services/music.service';
 import { PlayerService } from '../services/player.service';
 
@@ -7,20 +7,22 @@ import { PlayerService } from '../services/player.service';
   templateUrl: './music.component.html',
   styleUrls: ['./music.component.scss']
 })
-export class MusicComponent implements OnInit {
+export class MusicComponent implements OnInit, OnDestroy {
 
-  @Input() title: string;
-  @Input() author: string;
-  @Input() albumName: string;
-  @Input() albumCover: string;
+  public static count: number = 0;
 
-  @Input() src: string;
+  @Input() music: Music;
 
   @Input() index: number;
 
   constructor(private musicService: MusicService, private playerService: PlayerService) { }
 
   ngOnInit() {
+    MusicComponent.count++;
+  }
+
+  ngOnDestroy() {
+    MusicComponent.count--;
   }
 
   coverExists(){
@@ -28,7 +30,7 @@ export class MusicComponent implements OnInit {
   }
 
   setActualMusic(){
-    this.playerService.setNewMusic(this.musicService.musicList[this.index]);
+    this.playerService.setNewMusic(this.music);
   }
 
 }

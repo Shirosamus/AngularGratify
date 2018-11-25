@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
-import { Music } from '../services/music.service';
+import { Component, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 import { PlayerService } from '../services/player.service';
 
 @Component({

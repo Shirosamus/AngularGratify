@@ -1,0 +1,37 @@
+[
+    {
+        "title" : "Dark Side",
+        "author" : "Muse",
+        "album" : "Simulation Theory"
+    },
+    {
+        "title" : "Stand by me",
+        "author" : "Florence + The Machine",
+        "album" : "Songs from Final Fantasy XV"
+    },
+    {
+        "title" : "Cornfield Chase",
+        "author" : "Hans Zimmer",
+        "album" : "Interstellar"
+    },
+    {
+        "title" : "No Surprises",
+        "author" : "Radiohead",
+        "album" : "OK Computer"
+    },
+    {
+        "title" : "Airbag",
+        "author" : "Radiohead",
+        "album" : "OK Computer"
+    },
+    {
+        "title" : "Turbo Killer",
+        "author" : "Carpenter Brut",
+        "album" : "Trilogy"
+    },
+    {
+        "title" : "Fear of the Dark",
+        "author" : "Iron Maiden",
+        "album" : "Fear of the Dark"
+    }
+]

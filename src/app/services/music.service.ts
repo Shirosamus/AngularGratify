@@ -1,21 +1,19 @@
-export class MusicService{
-    musicList = [
-        new Music(
-            "Dark Side",
-            "Muse",
-            "Simulation Theory"
-        ),
-        new Music(
-            "Stand by me",
-            "Florence + The Machine",
-            "Songs from Final Fantasy XV"
-        ),
-        new Music(
-            "Bohemian Rhapsody",
-            "Queen",
-            "A Night at the Opera"
-        )
-    ]
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map} from "rxjs/operators";
+
+@Injectable()
+export class MusicService {
+    constructor(protected http: HttpClient) { }
+
+    public getMusic(): Observable<Music[]> {
+        return this.http.get('../../assets/data/musicDatabase.json').pipe(
+            map(
+                (jsonArray: Object[]) => jsonArray.map(jsonItem => Music.fromJSON(jsonItem))
+            )
+        );
+    }
 }
 
 export class Music {
@@ -23,9 +21,17 @@ export class Music {
     author: string;
     albumName: string;
 
-    constructor(title: string, author: string, albumName: string){
+    public static fromJSON(json: Object) {
+        return new Music(
+            json['title'],
+            json['author'],
+            json['album']
+        );
+    }
+
+    constructor(title: string, author: string, albumName: string) {
         this.title = title;
-        this.author = author,
+        this.author = author;
         this.albumName = albumName;
     }
 }

@@ -1,9 +1,17 @@
 <div *ngIf="isConnected(); else youHaveToLog">
-    <h3>Our (very) legal databse</h3>
+    <div class="topbar">
+        <h3>Our (very) legal database</h3>
+        <div class="search-container">
+            <form>
+                <input [(ngModel)]="keyword" type="text" placeholder="Search.." name="search" autocomplete="off">
+            </form>
+        </div>
+    </div>
     <ul class="list-group">
-        <app-music *ngFor="let music of musicList; let i = index" [title]=music.title [author]=music.author [albumName]=music.albumName
-            [index]=i>
-        </app-music>
+        <div *ngFor="let music of musicList; let i = index">
+            <app-music *ngIf='checkMusicKeyword(music)' [music]=music [index]=i>
+            </app-music>
+        </div>
     </ul>
 </div>
 <ng-template #youHaveToLog>

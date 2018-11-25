@@ -1,0 +1,20 @@
+.topbar{
+    h3{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: inline-block;
+        width: 50%;
+    }
+    .search-container{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        float: right;
+        right: 0;
+        
+        input {
+        background-color: #575757;
+        border-radius: 5px;
+        border-color: #333333;
+        }
+    }
+}
