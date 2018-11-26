@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,7 @@ import { PlayerComponent } from './player/player.component';
 import { AuthService } from './services/auth.service';
 import { MusicService } from './services/music.service';
 import { PlayerService } from './services/player.service';
+import { UploadFormComponent } from './upload-form/upload-form.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,15 @@ import { PlayerService } from './services/player.service';
     MusicListViewComponent,
     HomeViewComponent,
     MusicComponent,
-    PlayerComponent
+    PlayerComponent,
+    UploadFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,

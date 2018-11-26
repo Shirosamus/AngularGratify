@@ -1,21 +1,16 @@
-<div *ngIf="isConnected(); else youHaveToLog">
-    <div class="topbar">
-        <h3>Our (very) legal database</h3>
-        <div class="search-container">
-            <form>
-                <input type="text" [(ngModel)]="keyword" (input)="updateSearchList()" placeholder="Search..." name="search" autocomplete="off">
-            </form>
-        </div>
+<div class="topbar">
+    <h3>Our (very) legal database</h3>
+    <div class="search-container">
+        <form>
+            <input type="text" [(ngModel)]="keyword" (input)="updateSearchList()" placeholder="Search..." name="search"
+                autocomplete="off">
+        </form>
     </div>
-    <ul class="list-group" *ngIf="musicListFiltered.length > 0; else noMusicFound">
-        <app-music *ngFor="let music of musicListFiltered; let i = index" [music]=music [index]=i></app-music>
-    </ul>
-    <ng-template #noMusicFound>
-        <h4>Sorry :c</h4>
-        <p>There is nothing for you to be listened to.</p>
-    </ng-template>
 </div>
-<ng-template #youHaveToLog>
-    <h3>Error :c</h3>
-    <p>Sorry, you have to log to listen to music ! (it's very quick, click the key button on the navigation bar !)</p>
+<ul class="list-group" *ngIf="musicListFiltered.length > 0; else noMusicFound">
+    <app-music *ngFor="let music of musicListFiltered; let i = index" [music]=music [index]=i></app-music>
+</ul>
+<ng-template #noMusicFound>
+    <h4>Sorry :c</h4>
+    <p>There is nothing for you to be listened to.</p>
 </ng-template>

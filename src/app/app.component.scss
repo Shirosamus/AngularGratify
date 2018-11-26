@@ -14,7 +14,7 @@
 
 nav li a{
     color: whitesmoke;
-    &:hover, &:focus{
+    &:hover, &:focus, &:active{
         color: yellow;
         background: #141414; /* Old browsers */
         background: -moz-linear-gradient(top, #141414 0%, #161616 8%, #444444 95%, #5a5a5a 100%); /* FF3.6-15 */

@@ -1,0 +1,83 @@
+<div *ngIf="isConnected(); else youHaveToLog">
+  <h3>Upload a song in our database</h3>
+  <p>We love to know what you're listening to. So, share it with us !</p>
+  <form [formGroup]="uploadForm" (ngSubmit)="submitFile()">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" />
+      <!-- <div *ngIf="submitted && uploadForm.controls.title.errors" class="invalid-feedback">
+        <div *ngIf="uploadForm.controls.title.errors.required">A title is required for a song</div>
+      </div> -->
+    </div>
+    <div class="form-group">
+      <label>Artist</label>
+      <input type="text" formControlName="author" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.author.errors }" />
+      <!-- <div *ngIf="submitted && uploadForm.controls.author.errors" class="invalid-feedback">
+        <div *ngIf="uploadForm.controls.author.errors.required">An artist is required for a song</div>
+      </div> -->
+    </div>
+    <div class="form-group">
+      <label>Album</label>
+      <input type="text" formControlName="album" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.album.errors }" />
+      <!-- <div *ngIf="submitted && uploadForm.controls.album.errors" class="invalid-feedback">
+        <div *ngIf="uploadForm.controls.album.errors.required">An album is required for a song</div>
+      </div> -->
+    </div>
+    <!-- <div class="form-group row">
+      <label for="AuthorSelect">Artist</label>
+      <select #authorSelect class="form-control" id="AuthorSelect">
+        <option value="Other">Other...</option>
+        <option [value]="author" *ngFor="let author of artistList">{{author}}</option>
+      </select>
+    </div> -->
+    <div class="form-group">
+      <label>Album cover</label>
+      <input type="file" formControlName="albumCover">
+    </div>
+    <div class="form-group">
+      <label>Music file</label>
+      <input type="file" formControlName="musicFile">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary">Upload</button>
+    </div>
+  </form>
+  <!-- <form (ngSubmit)="submitFile()">
+    <div class="form-group row">
+      <label for="title" class="col-sm-2 col-form-label">Title</label>
+      <div class="col-sm-6">
+        <input #titleBox class="form-control" type="text" placeholder="Dark Side" id="title" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="author" class="col-sm-2 col-form-label">Artiste</label>
+      <div class="col-sm-6">
+        <input #authorBox class="form-control" type="text" placeholder="Muse" id="author" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="album" class="col-sm-2 col-form-label">Album</label>
+      <div class="col-sm-6">
+        <input class="form-control" type="text" placeholder="Simulation Theory" id="album" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="musicFile" class="col-sm-2 col-form-label">Music file</label>
+      <input type="file" class="form-control-file col-sm-10" id="musicFile" aria-describedby="fileHelpMusic" required>
+      <small id="fileHelpMusic" class="form-text text-muted">Upload a file in .mp3</small>
+    </div>
+    <div class="form-group row">
+      <label for="albumCover" class="col-sm-2 col-form-label">Album cover</label>
+      <input type="file" class="form-control-file col-sm-10" id="albumCover" aria-describedby="fileHelpCover">
+      <small id="fileHelpCover" class="form-text text-muted">Upload the cover of the album. Should be a square, 512x512
+        is prefered</small>
+    </div>
+    <div class="form-group row">
+      <button type="submit" class="btn col-sm-2">Upload</button>
+    </div>
+  </form> -->
+</div>
+<ng-template #youHaveToLog>
+  <h3>Error :c</h3>
+  <p>Sorry, you have to log to listen to music ! (it's very quick, click the key button on the navigation bar !)</p>
+</ng-template>

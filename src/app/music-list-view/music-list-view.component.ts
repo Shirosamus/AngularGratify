@@ -17,7 +17,7 @@ export class MusicListViewComponent implements OnInit, OnDestroy {
   musicListFiltered: Music[];
   musicSuscription: Subscription;
 
-  constructor(private musicService: MusicService, private authService: AuthService) { }
+  constructor(private musicService: MusicService) { }
 
   ngOnInit() {
     this.musicSuscription = this.musicService.getMusic().subscribe(
@@ -30,10 +30,6 @@ export class MusicListViewComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.musicSuscription.unsubscribe();
-  }
-
-  isConnected() {
-    return this.authService.isAuth;
   }
 
   //Update the displayed list when the keyword is changed

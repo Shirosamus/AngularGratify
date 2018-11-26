@@ -4,6 +4,7 @@
       <ul class="nav navbar-nav">
         <li routerLinkActive="active"><a routerLink=""><i class="fas fa-home"></i></a></li>
         <li routerLinkActive="active"><a routerLink="list">Music</a></li>
+        <li routerLinkActive="active"><a routerLink="upload">Upload</a></li>
         <li class="right">
           <div class="popover-auth" id="connection-popover">popover</div>
           <a *ngIf='!isConnected()' (click)="connect()"><i class="fas fa-key"></i></a>
