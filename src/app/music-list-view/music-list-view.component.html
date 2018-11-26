@@ -3,16 +3,17 @@
         <h3>Our (very) legal database</h3>
         <div class="search-container">
             <form>
-                <input [(ngModel)]="keyword" type="text" placeholder="Search.." name="search" autocomplete="off">
+                <input type="text" [(ngModel)]="keyword" (input)="updateSearchList()" placeholder="Search..." name="search" autocomplete="off">
             </form>
         </div>
     </div>
-    <ul class="list-group">
-        <div *ngFor="let music of musicList; let i = index">
-            <app-music *ngIf='checkMusicKeyword(music)' [music]=music [index]=i>
-            </app-music>
-        </div>
+    <ul class="list-group" *ngIf="musicListFiltered.length > 0; else noMusicFound">
+        <app-music *ngFor="let music of musicListFiltered; let i = index" [music]=music [index]=i></app-music>
     </ul>
+    <ng-template #noMusicFound>
+        <h4>Sorry :c</h4>
+        <p>There is nothing for you to be listened to.</p>
+    </ng-template>
 </div>
 <ng-template #youHaveToLog>
     <h3>Error :c</h3>

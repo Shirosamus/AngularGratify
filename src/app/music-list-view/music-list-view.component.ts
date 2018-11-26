@@ -14,6 +14,7 @@ export class MusicListViewComponent implements OnInit, OnDestroy {
   @Input() isLogged: boolean;
   keyword: string = "";
   musicList: Music[];
+  musicListFiltered: Music[];
   musicSuscription: Subscription;
 
   constructor(private musicService: MusicService, private authService: AuthService) { }
@@ -22,6 +23,7 @@ export class MusicListViewComponent implements OnInit, OnDestroy {
     this.musicSuscription = this.musicService.getMusic().subscribe(
       musics => {
         this.musicList = musics;
+        this.updateSearchList();
       }
     );
   }
@@ -34,13 +36,12 @@ export class MusicListViewComponent implements OnInit, OnDestroy {
     return this.authService.isAuth;
   }
 
-  checkMusicKeyword(music: Music) {
-    return music.title.toLowerCase().includes(this.keyword.toLowerCase())
+  //Update the displayed list when the keyword is changed
+  updateSearchList() {
+    this.musicListFiltered = this.musicList.filter(music => {
+      return music.title.toLowerCase().includes(this.keyword.toLowerCase())
       || music.author.toLowerCase().includes(this.keyword.toLowerCase())
-      || music.albumName.toLowerCase().includes(this.keyword.toLowerCase());
-  }
-
-  musicFound(){
-    return MusicComponent.count === 0;
+      || music.albumName.toLowerCase().includes(this.keyword.toLowerCase())
+    });
   }
 }
