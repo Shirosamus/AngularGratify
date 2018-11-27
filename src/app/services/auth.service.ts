@@ -1,6 +1,6 @@
 export class AuthService{
     isAuth = false;
-    popover = document.getElementById('connection-popover');
+    popover;
 
     connect(){
         this.isAuth = true;
