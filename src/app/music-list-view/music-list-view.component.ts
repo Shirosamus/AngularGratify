@@ -2,8 +2,6 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Subscription } from "rxjs";
 
 import { Music, MusicService } from '../services/music.service';
-import { AuthService } from '../services/auth.service';
-import { MusicComponent } from '../music/music.component';
 
 @Component({
   selector: 'app-music-list-view',
@@ -14,7 +12,7 @@ export class MusicListViewComponent implements OnInit, OnDestroy {
   @Input() isLogged: boolean;
   keyword: string = "";
   musicList: Music[];
-  musicListFiltered: Music[];
+  musicListFiltered: Music[] = [];
   musicSuscription: Subscription;
 
   constructor(private musicService: MusicService) { }

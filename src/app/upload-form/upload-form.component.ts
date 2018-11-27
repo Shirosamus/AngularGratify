@@ -44,8 +44,8 @@ export class UploadFormComponent implements OnInit, AfterViewInit {
       title: ['', Validators.required],
       author: ['', Validators.required],
       album: ['', Validators.required],
-      albumCover: [''],
-      musicFile: ['', Validators.required]
+      cover: [''],
+      music: ['', Validators.required]
     });
   }
 
@@ -72,15 +72,11 @@ export class UploadFormComponent implements OnInit, AfterViewInit {
 
   submitFile(popover) {
     if (this.uploadForm.dirty && this.uploadForm.valid) {
-      // this.dir += this.uploadForm.value.author + "/" + this.uploadForm.value.album;
       let data = {
         "title": this.uploadForm.value.title,
         "author": this.uploadForm.value.author,
         "alubm": this.uploadForm.value.album
       };
-      // let headers = new HttpHeaders()
-      //   .set('content-type', 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW')
-      // let headers = new HttpHeaders().set('content-type', 'multipart/form-data')
       const formData: FormData = new FormData();
 
       formData.append((0).toString(), this.files["music"], "music");
